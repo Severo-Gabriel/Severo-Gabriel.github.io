@@ -1,23 +1,352 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Currículo - Gabriel Severo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel S. - Currículo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        header > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header p {
+            font-size: 1.4em;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            font-weight: 300;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 0.95;
+            }
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-info a:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-info a:active {
+            transform: translateY(0);
+        }
+
+        .content {
+            padding: 60px 80px;
+            flex: 1;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .experience-item,
+        .education-item,
+        .project-item {
+            margin-bottom: 30px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .item-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .item-subtitle {
+            color: #666;
+            font-style: italic;
+        }
+
+        .item-date {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .item-description {
+            margin-top: 10px;
+            color: #555;
+        }
+
+        .item-description ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .item-description li {
+            margin-bottom: 5px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category h3 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 5px 0;
+            color: #555;
+        }
+
+        .skill-category li:before {
+            content: "▹ ";
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 20px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .item-header {
+                flex-direction: column;
+            }
+
+            .item-date {
+                margin-top: 5px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            header {
+                background: #667eea;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Gabriel Severo</h1>
-  <p>Desenvolvedor Web PHP | Laravel | MySQL</p>
+    <div class="container">
+        <header>
+            <h1>Gabriel Severo Paiva</h1>
+            <p>Desenvolvedor Full Stack</p>
+            <div class="contact-info">
+                <a href="mailto:severogsp@email.com">severogsp@email.com</a>
+                <a href="tel:+5561992676164">+55 6199267-6164</a>
+                <a href="https://www.linkedin.com/in/severogsp/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/Severo-Gabriel" target="_blank">GitHub</a>
+            </div>
+        </header>
 
-  <h2>Sobre mim</h2>
-  <p>Sou desenvolvedor web apaixonado por tecnologia e aprendizado contínuo.</p>
+        <div class="content">
+            <section id="sobre">
+                <h2>Sobre</h2>
+                <p>Desenvolvedor web full-stack com experiência prática em PHP e seus principais frameworks, focado em construir aplicações escaláveis e performáticas. Combinando minha base sólida em suporte técnico onde resolvi problemas complexos de software e hardware, diagnostiquei falhas de sistema e prestei atendimento técnico direto desenvolvi uma visão holística do ciclo de vida das aplicações.</p>
+            </section>
 
-  <h2>Experiência</h2>
-  <ul>
-    <li>Dev Júnior na Empresa X - PHP e Laravel</li>
-  </ul>
+            <section id="experiencia">
+                <h2>Experiência Profissional</h2>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Desenvolvedor Júnior Full Stack</div>
+                            <div class="item-subtitle">Empresa PixPay.ai</div>
+                        </div>
+                        <div class="item-date">Novembro 2025 - Presente</div>
+                    </div>
+                    <div class="item-description">
+                        <ul>
+                            <li>Suporte e manutenção de projetos e da infraestrutura tecnológica.</li>
+                            <li>Implementação de APIs RESTful e integrações com serviços terceiros</li>
+                            <li>Desenvolvimento de um portal financeiro voltado à venda de máquinas de cartão.</li>
+                            
+                        </ul>
+                    </div>
+                </div>
 
-  <h2>Contato</h2>
-  <p>Email: seuemail@gmail.com</p>
+            </section>
+
+            <section id="educacao">
+                <h2>Formação Acadêmica</h2>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Licenciatura em Ciência da Computação</div>
+                            <div class="item-subtitle">Universidade de Brasília</div>
+                        </div>
+                        <div class="item-date">2024 - 2028</div>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Análise e Desenvolvimento de Sistemas</div>
+                            <div class="item-subtitle">Centro Universitário Estácio</div>
+                        </div>
+                        <div class="item-date">2025 - 2027</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="habilidades">
+                <h2>Habilidades</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Front-end</h3>
+                        <ul>
+                            <li>HTML5 & CSS3</li>
+                            <li>JavaScript (ES6+)</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Back-end</h3>
+                        <ul>
+                            <li>PHP & Laravel</li>
+                            <li>Python</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Ferramentas</h3>
+                        <ul>
+                            <li>Git & GitHub</li>
+                            <li>Linux</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
 </body>
 </html>
