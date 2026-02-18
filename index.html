@@ -5,251 +5,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gabriel S. - Currículo</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: white;
-            margin: 0;
-            padding: 0;
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #e0e0e0;
+    background: #0f0f0f;
+}
 
-        .container {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
 
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 80px 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+header {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    color: white;
+    padding: 80px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
-            animation: pulse 8s ease-in-out infinite;
-        }
+header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(255,0,0,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255,0,0,0.1) 0%, transparent 50%);
+    animation: pulse 8s ease-in-out infinite;
+}
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
+@keyframes pulse {
+    0%,100% {opacity:.5}
+    50% {opacity:1}
+}
 
-        header > * {
-            position: relative;
-            z-index: 1;
-        }
+header h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
 
-        header h1 {
-            font-size: 3.5em;
-            margin-bottom: 15px;
-            font-weight: 700;
-            letter-spacing: -1px;
-            animation: fadeInDown 0.8s ease-out;
-        }
+header p {
+    font-size: 1.4em;
+    opacity: .9;
+}
 
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
-        header p {
-            font-size: 1.4em;
-            opacity: 0.95;
-            margin-bottom: 30px;
-            font-weight: 300;
-            animation: fadeIn 1s ease-out 0.3s both;
-        }
+.contact-info a {
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    background: rgba(255,0,0,0.15);
+    border-radius: 50px;
+    border: 1px solid rgba(255,0,0,0.4);
+    transition: .3s;
+}
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 0.95;
-            }
-        }
+.contact-info a:hover {
+    background: rgba(255,0,0,0.35);
+    transform: translateY(-2px);
+}
 
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-            animation: fadeIn 1s ease-out 0.6s both;
-        }
 
-        .contact-info a {
-            color: white;
-            text-decoration: none;
-            padding: 12px 24px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 50px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            font-size: 0.95em;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+.content {
+    padding: 60px 80px;
+    background:#0f0f0f;
+}
 
-        .contact-info a:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
+h2 {
+    color: #ff2b2b;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #ff2b2b;
+}
 
-        .contact-info a:active {
-            transform: translateY(0);
-        }
 
-        .content {
-            padding: 60px 80px;
-            flex: 1;
-        }
+.item-title {
+    color: white;
+}
 
-        section {
-            margin-bottom: 40px;
-        }
+.item-subtitle {
+    color: #bbb;
+}
 
-        h2 {
-            color: #667eea;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
-        }
+.item-date {
+    color: #999;
+}
 
-        .experience-item,
-        .education-item,
-        .project-item {
-            margin-bottom: 30px;
-        }
+.item-description {
+    color: #ccc;
+}
 
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-        }
 
-        .item-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #333;
-        }
+.skill-category h3 {
+    color: #ff2b2b;
+}
 
-        .item-subtitle {
-            color: #666;
-            font-style: italic;
-        }
+.skill-category li {
+    color:#ccc;
+}
 
-        .item-date {
-            color: #888;
-            font-size: 0.9em;
-        }
+.skill-category li:before {
+    content: "▹ ";
+    color: #ff2b2b;
+}
 
-        .item-description {
-            margin-top: 10px;
-            color: #555;
-        }
 
-        .item-description ul {
-            margin-left: 20px;
-            margin-top: 10px;
-        }
+@media (max-width: 768px) {
+    header {
+        padding: 40px 20px;
+    }
 
-        .item-description li {
-            margin-bottom: 5px;
-        }
+    header h1 {
+        font-size: 2em;
+    }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
+    .content {
+        padding: 30px 20px;
+    }
+}
 
-        .skill-category h3 {
-            color: #764ba2;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
 
-        .skill-category ul {
-            list-style: none;
-        }
+@media print {
+    body {
+        background: white;
+        color:black;
+    }
 
-        .skill-category li {
-            padding: 5px 0;
-            color: #555;
-        }
-
-        .skill-category li:before {
-            content: "▹ ";
-            color: #667eea;
-            font-weight: bold;
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 40px 20px;
-            }
-
-            header h1 {
-                font-size: 2em;
-            }
-
-            .content {
-                padding: 30px 20px;
-            }
-
-            .item-header {
-                flex-direction: column;
-            }
-
-            .item-date {
-                margin-top: 5px;
-            }
-        }
-
-        @media print {
-            body {
-                background: white;
-            }
-
-            header {
-                background: #667eea;
-                print-color-adjust: exact;
-                -webkit-print-color-adjust: exact;
-            }
-        }
-    </style>
+    header {
+        background: black;
+        -webkit-print-color-adjust: exact;
+    }
+}
+</style>
 </head>
 <body>
     <div class="container">
